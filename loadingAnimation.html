@@ -55,7 +55,10 @@
     // 4. Add one creative idea as a comment (such as adding music, background change, or more emojis)
     // Change background color during loading using a setInterval loop
 
-    
+    // Change background color every second
+    setInterval(() => {
+      document.body.style.backgroundColor = document.body.style.backgroundColor === 'cyan' ? 'yellow' : 'cyan';
+    }, 1000);
   </script>
 
 </body>
