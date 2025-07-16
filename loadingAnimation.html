@@ -10,21 +10,34 @@
   <div id="status">Please wait</div>
 
   <script>
+    // Function to run the loading animation
     function runLoadingAnimation() {
+      // Get the loader and status elements from the DOM
       const loader = document.getElementById("loader");
       const status = document.getElementById("status");
 
+      // Array to hold frames to display in the animation
       const frames = ["⏳", "⌛", ".", "..", "..."];
+      // Current index of the frames array
       let index = 0;
+      // Number of compelete cycles
       let cycleCount = 0;
+      // Max number of cycles before animation halts
       const maxCycles = 10;
 
+      // Create loop with setInterval to execute function every 500 ms
       const interval = setInterval(() => {
+        // Update loader's text content with current frame
         loader.textContent = frames[index % frames.length];
+        // Increment the index for the next frame
         index++;
+
+        // Increment cycleCOunt when a full cycle completed
         if (index % frames.length === 0) {
           cycleCount++;
         }
+
+        // Stop animation when max number of cycles reached
         if (cycleCount >= maxCycles) {
           clearInterval(interval);
           loader.textContent = "✅";
@@ -33,6 +46,7 @@
       }, 500);
     }
 
+    // Call loading animation func
     runLoadingAnimation();
   </script>
 
